@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    // arr[] is the array
+    long long int product(vector<int> &arr) {
+        // code here
+    const int mod = 1000000007;
+    long long product = 1;
+    
+    for (int num : arr) {
+        product = (product * num) % mod;
+    }
+    
+    return product;
+
+    }
+};
