@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int dominantIndex(vector<int>& nums) {
+        int  pre_max=0;
+        int pre_ind=0;
+        int max_ind=0;
+        int max=0;
+
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>max){
+                pre_max=max;
+                pre_ind=max_ind;
+                max=nums[i];
+                max_ind=i;
+                
+            }
+            else if(nums[i]>pre_max){
+                pre_max=nums[i];
+                pre_ind=i;
+            }
+
+        }
+        if(max>=pre_max*2){
+            return max_ind;
+        }
+        return-1;
+
+    }
+};
