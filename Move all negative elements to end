@@ -1,0 +1,41 @@
+ public:
+    void segregateElements(vector<int>& arr) {
+         vector<int> positive_elements;
+         vector<int> negative_elements;
+
+//---------------Examples-----------------//
+
+Input : arr[] = [1, -1, 3, 2, -7, -5, 11, 6 ]
+Output : [1, 3, 2, 11, 6, -1, -7, -5]
+Explanation: By doing operations we separated the integers without changing the order.
+Input : arr[] = [-5, 7, -3, -4, 9, 10, -1, 11]
+Output : [7, 9, 10, 11, -5, -3, -4, -1]
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(n)
+
+
+//---------------Solution-----------------//
+
+// Traverse the array and categorize elements
+    for (int num : arr) {
+        if (num >= 0) {
+            positive_elements.push_back(num);
+        } else {
+            negative_elements.push_back(num);
+        }
+    }
+
+    // Combine positive and negative elements
+    int index = 0;
+
+    // First, place positive elements
+    for (int num : positive_elements) {
+        arr[index++] = num;
+    }
+
+    // Then, place negative elements
+    for (int num : negative_elements) {
+        arr[index++] = num;
+    }
+
+    }
