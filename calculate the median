@@ -1,0 +1,30 @@
+Given an array arr[] of N integers, calculate the median.
+
+Example 1:
+
+Input: N = 5
+arr[] = 90 100 78 89 67
+Output: 89
+Explanation: After sorting the array 
+middle element is the median 
+
+
+//-------------Solution---------------//
+
+	int find_median(vector<int> v){
+	   
+         int n = v.size();
+    
+    // Sort the vector
+    sort(v.begin(), v.end());
+    
+    // If n is odd, return the middle element
+    if (n % 2 == 1) {
+        return v[n / 2];
+    } else {
+        // If n is even, return the floor of the average of the two middle elements
+        return (v[n / 2 - 1] + v[n / 2]) / 2;
+    }
+
+         
+	}
