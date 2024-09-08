@@ -1,0 +1,55 @@
+Problem statement
+You are given an array 'arr' of length 'n', consisting of integers.
+
+
+
+A subarray is a contiguous segment of an array. In other words, a subarray can be formed by removing 0 or more integers from the beginning and 0 or more integers from the end of an array.
+
+
+
+Find the sum of the subarray (including empty subarray) having maximum sum among all subarrays.
+
+
+
+The sum of an empty subarray is 0.
+
+
+
+Example :
+Input: 'arr' = [1, 2, 7, -4, 3, 2, -10, 9, 1]
+
+Output: 11
+
+Explanation: The subarray yielding the maximum sum is [1, 2, 7, -4, 3, 2].
+Detailed explanation ( Input/output format, Notes, Images )
+Sample Input 1 :
+9
+1 2 7 -4 3 2 -10 9 1
+
+
+Sample Output 1 :
+11
+
+
+Explanation for Sample 1 :
+The subarray yielding the maximum sum is [1, 2, 7, -4, 3, 2].
+
+
+//-----------------Solution--------------------//
+long long maxSubarraySum(vector<int> arr, int n)
+{
+      long long max_sum = 0;  // Maximum sum so far (empty subarray sum is 0)
+    long long current_sum = 0;  // Current subarray sum
+
+    for(int i = 0; i < arr.size(); i++) {
+        current_sum += arr[i];   // Add the current element to the current sum
+        if(current_sum > max_sum) {
+            max_sum = current_sum;  // Update max_sum if current_sum is greater
+        }
+        if(current_sum < 0) {
+            current_sum = 0;  // Reset current_sum if it becomes negative
+        }
+    }
+
+    return max_sum; 
+}
